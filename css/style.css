@@ -10,6 +10,13 @@
   --white-alpha-color: rgba(255, 255, 255, 0.5);
   --black-color: #000;
   --black-alpha-color: rgba(0, 0, 0, 0.5);
+  --gray-light-color: #f3f3f3;
+  --gray-color: #ccc;
+  --gray-dark-color: #666;
+  --black-color: #000;
+  --link-color: #509ee3;
+  --title-color: #333;
+  --text-color: #222;
   --font: 'Rubik', sans-serif;
   --max-width: 1200px;
   --header-height: 4rem;
@@ -48,6 +55,10 @@ h1 {
 }
 
 h2 {
+  margin: 0;
+}
+
+h3 {
   margin: 0;
 }
 
@@ -168,10 +179,47 @@ p {
 }
 /** Nav Menu **/
 
+/** Progress Bar **/
+progress {
+  width: 100%;
+  height: 1rem;
+  background-color: var(--second-color);
+}
+
+progress::-webkit-progress-bar {
+  background-color: grey;
+}
+
+progress::-webkit-progress-value {
+  background-color: var(--second-color);
+}
+
+progress::-moz-progress-bar {
+  background-color: var(--black-color);
+}
+
+.progress {
+  margin: 1rem auto;
+}
+
+.progress > p {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: .85rem;
+}
+
+/** Progress Bar **/
+
 /**! Components **/
 
 
 /**! Utilities **/
+
+.bg-gray-light {
+  background-color: var(--gray-light-color);
+}
+
 
 /** Buttons **/
 .btn {
@@ -185,7 +233,6 @@ p {
   color: var(--first-color);
   background-color: var(--second-color);
 }
-
 /** Buttons **/
 
 /** Container **/
@@ -194,10 +241,73 @@ p {
   margin-right: auto;
   max-width: var(--max-width);
 }
+/** Container **/
+
+/** Gray Filter **/
+.gray-scale {
+  filter: grayscale(1);
+}
+/** Gray Filter **/
 
 .none {
   display: none;
 }
+
+/** Section **/
+.section {
+  padding: 2rem 2rem;
+}
+
+.section-title {
+  border-top: solid var(--second-color);
+  border-bottom: solid var(--second-color);
+  margin: 2rem auto;
+  padding: .5rem 1rem;
+  width: 250px;
+  text-align: center;
+  color: var(--title-color);
+}
+
+
+/** Section **/
+
+
+/** Text Direction **/
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+@media screen and (min-width: 1024px) {
+  /* Class para responsive full screen */
+  .full-lg-screen {
+    width: 100%;
+    min-height: 100vh;
+  }
+  
+  /* Se aplica a los elementos HTML para comportamiento de la @media */
+  .text-lg-left {
+    text-align: left;
+  }
+  
+  .text-lg-center {
+    text-align: center;
+  }
+  
+  .text-lg-right {
+    text-align: right;
+  }
+}
+/** Text Direction **/
+
+
 
 /**! Site Styles **/
 
@@ -225,17 +335,74 @@ p {
   font-size: 2rem;
   text-decoration: none;
 }
+/** Header **/
+
+/** Services **/
+.service-card {
+  margin: 1rem auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+.service-card svg {
+  margin-bottom: .5rem;
+  fill: var(--second-color);
+}
+
+.service-card h3 {
+  color: var(--first-color);
+  margin-bottom: 1rem;
+}
+
+/** Services **/
 
 @media screen and (min-width: 768px){
+  .services > .container {
+    display: grid;
+    grid-template-columns: repeat(2, 45%);
+    justify-content: space-between;
+    align-content: center;
+  }
+
+  .services .section-title {
+    grid-column: span 2;
+  }
+
 
 }
 
 @media screen and (min-width: 1024px){
+  /* About */
+  .about {
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    justify-content: space-between;
+    align-content: center;
+  }
+  
+  /* Header */
   .header {
     position: sticky;
     top: 0;
     padding: 0.5rem;
     height: calc(var(--header-height) -- .5rem);
   }
+
+  .services > .container {
+    grid-template-columns: repeat(3, 30%);
+  }
+
+  .services .section-title {
+    grid-column: span 3;
+  }
+
+
 }
 /** Header **/
+
+/** About **/
+.about > article {
+  margin-bottom: 2rem;
+}
+
+/** About **/
