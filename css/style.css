@@ -40,9 +40,11 @@ html {
 body {
   margin: 0;
   overflow-x: hidden;
+  color: var(--text-color);
 }
 
 a {
+  color: var(--link-color);
   transition: all 0.5s ease-out;
 }
 
@@ -52,14 +54,32 @@ a:hover {
  
 h1 {
   margin: 0;
+  font-size: 2rem;
 }
 
 h2 {
   margin: 0;
+  font-size: 1.5rem;
 }
 
 h3 {
   margin: 0;
+  font-size: 1.25rem;
+}
+
+h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+h5 {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+h6 {
+  margin: 0;
+  font-size: 0.7rem;
 }
 
 img {
@@ -68,11 +88,91 @@ img {
 }
 
 p {
-  margin: 0;
+  line-height: 1.6;
 }
 /**! Reset **/
 
 /**! Components **/
+/** Carousel **/
+@keyframes carousel-slide {
+  0% {
+    transform: translateX(0%);
+  }
+
+  25% {
+    transform: translateX(-25%);
+  }
+
+  50% {
+    transform: translateX(-50%);
+  }
+
+  75% {
+    transform: translateX(-75%);
+  }
+}
+
+
+.carousel {
+  margin: 2rem auto;
+  padding: 2rem 0;
+  max-width: 800px;
+  text-align: center;
+  overflow-x: hidden;
+  background-color: var(--carousel-bg-color);
+}
+
+.carousel .slides {
+  /* por cada slide que tenga el carousel tenes que sumarle el 100%  */
+  padding-left: 0;
+  width: 400%;
+  display: flex;
+  list-style: none;
+  transition: transform .5s ease-in-out;
+  animation: carousel-slide 12s ease-in-out 3s;
+
+}
+
+
+.carousel input {
+  display: none;
+}
+
+.carousel label {
+  border: medium solid var(--gray-dark-color);
+  border-radius: 50%;
+  margin: 0 0.25rem;
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  cursor: pointer;
+}
+
+#slide-1:checked ~ .slides {
+  transform: translateX(0%);
+}
+
+#slide-2:checked ~ .slides {
+  /* Se divide el 100% por la cantidad de slides */
+  transform: translateX(-25%);
+}
+
+#slide-3:checked ~ .slides {
+  transform: translateX(-50%);
+}
+
+#slide-4:checked ~ .slides {
+  transform: translateX(-75%);
+}
+
+#slide-1:checked ~ .slides-nav label#dot-1,
+#slide-2:checked ~ .slides-nav label#dot-2,
+#slide-3:checked ~ .slides-nav label#dot-3,
+#slide-4:checked ~ .slides-nav label#dot-4 {
+  background-color: var(--gray-dark-color);
+}
+/** Carousel **/
+
 
 /** Hero Image **/
 .hero-image {
@@ -259,6 +359,17 @@ progress::-moz-progress-bar {
 
 /**! Utilities **/
 
+.avatar {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+
+
+
+
+
 .bg-gray-light {
   background-color: var(--gray-light-color);
 }
@@ -350,6 +461,11 @@ progress::-moz-progress-bar {
 }
 /** Text Direction **/
 
+.text-first-color {
+  color: var(--second-color);
+}
+
+
 
 
 /**! Site Styles **/
@@ -392,7 +508,6 @@ progress::-moz-progress-bar {
   width: 100%;
   height: 100%;
   object-fit: cover; /* Evita que ciertas imagenes pierdan la proporcion de la img */
-
 }
 
 .portfolio-card-info {
@@ -422,6 +537,34 @@ progress::-moz-progress-bar {
 }
 
 /** Portfolio **/
+
+/** Modal **/
+.portfolio-modal {
+  padding: 1rem;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white-color);
+}
+
+.portfolio-modal h3 {
+  border-bottom: medium solid var(--second-color);
+  padding: .5rem 0;
+  margin: 1rem auto;
+  color: var(--title-color);
+}
+
+.portfolio-details {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-auto-rows: 2rem;
+}
+
+.portfolio-details b {
+  color: var(--second-color);
+}
+
+/** Modal **/
 
 
 /** Services **/
@@ -453,6 +596,20 @@ progress::-moz-progress-bar {
     grid-column: span 2;
   }
   
+  .portfolio-modal {
+    max-width: 800px;
+    flex-direction: row;
+  }
+
+  .portfolio-info {
+    margin-left: 1rem;
+    align-self: center;
+  }
+
+  /* Cambiar o eliminar para ajustar la img */
+  .portfolio-modal img {
+    width: 50%;
+  } 
   
   .services > .container {
     display: grid;
@@ -464,8 +621,6 @@ progress::-moz-progress-bar {
   .services .section-title {
     grid-column: span 2;
   }
-
-
 
 
 }
