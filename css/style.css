@@ -93,6 +93,99 @@ p {
 /**! Reset **/
 
 /**! Components **/
+
+/** ContactForm **/
+.contact-form {
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 800px;
+
+}
+
+.contact-form > * {
+  padding: .5rem;
+  margin: 1rem auto;
+  display: block;
+  width: 100%;
+}
+
+.contact-form input,
+.contact-form textarea {
+  font-size: .85rem;
+  font-family: var(--font);
+}
+
+.contact-form input {
+  border: 0;
+  border-bottom: thin solid var(--gray-dark-color);
+  padding-left: 0;
+}
+
+.contact-form textarea {
+  border: thin solid var(--gray-dark-color);
+  resize: none;
+}
+
+.contact-form input[type="submit"] {
+  margin-top: 0;
+  cursor: pointer;
+  transition: all .5s ease-out;
+}
+
+.contact-form input[type="submit"]:hover {
+  opacity: 0.75;
+}
+
+.contact-form *::placeholder {
+  color: var(--gray-dark-color);
+}
+
+.modal#gracias:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.contact-form-response {
+  padding: 1rem;
+  width: 300px;
+  text-align: center;
+  background-color: var(--white-color);
+}
+
+.contact-form-response svg {
+  margin-top: 1rem;
+  width: 4rem;
+  height: 4rem;
+  fill: var(--second-color);
+}
+
+@media screen and (min-width: 1024px) {
+  .contact-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 1rem;
+  }
+
+  .contact-form textarea,
+  .contact-form-loader {
+    grid-column: span 2;
+  }
+
+  .contact-form input[type="submit"] {
+    margin-left: 0;
+  }
+}
+
+/** ContactForm **/
+
+
+
+
 /** Carousel **/
 @keyframes carousel-slide {
   0% {
@@ -506,8 +599,22 @@ progress::-moz-progress-bar {
   text-decoration: none;
 }
 
-
 /** Contact **/
+
+/** Footer **/
+.footer {
+  margin-bottom: var(--header-height);
+  padding: 0.5rem;
+  text-align: center;
+  background-color: var(--second-color);
+  color: var(--white-color);
+}
+
+.footer a {
+  color: var(--first-color);
+}
+/** Footer **/
+
 
 /** Header **/
 .header {
@@ -683,6 +790,10 @@ progress::-moz-progress-bar {
   
   .contact-cards {
     grid-template-columns: repeat(4, 24%);
+  }
+
+  .footer {
+    margin-bottom: 0;
   }
 
   /* Header */
