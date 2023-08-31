@@ -74,7 +74,7 @@ h4 {
 
 h5 {
   margin: 0;
-  font-size: 0.85rem;
+  font-size: 1.3rem;
 }
 
 h6 {
@@ -365,7 +365,9 @@ progress::-moz-progress-bar {
   height: 150px;
 }
 
-
+.box-shadow-1 {
+  box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.25);
+}
 
 
 
@@ -469,6 +471,43 @@ progress::-moz-progress-bar {
 
 
 /**! Site Styles **/
+
+/** Contact **/
+.contact-card {
+  margin: 1rem auto;
+  padding: 1rem;
+  width: 100%;
+  height: 144px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.contact-card > svg {
+  width: 2rem;
+  height: 2rem;
+  fill: var(--second-color);
+}
+
+.social-media > a > svg {
+  width: 2rem;
+  height: 2rem;
+  fill: var(--first-alpha-color);
+}
+
+.social-media > a > svg:hover {
+  fill: var(--second-color);
+  transition: 0.3s ease-in;
+}
+
+.social-media a {
+  padding: 0 0.4rem;
+  text-decoration: none;
+}
+
+
+/** Contact **/
 
 /** Header **/
 .header {
@@ -587,6 +626,14 @@ progress::-moz-progress-bar {
 /** Services **/
 
 @media screen and (min-width: 768px){
+  .contact-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 48%);
+    justify-content: space-between;
+  }
+  
+  
+  
   .portfolio > .container {
     display: grid;
     grid-template-columns: repeat(2, 50%);
@@ -634,6 +681,10 @@ progress::-moz-progress-bar {
     align-content: center;
   }
   
+  .contact-cards {
+    grid-template-columns: repeat(4, 24%);
+  }
+
   /* Header */
   .header {
     position: sticky;
